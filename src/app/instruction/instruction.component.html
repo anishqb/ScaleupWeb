@@ -1,0 +1,12 @@
+<p>instruction works!</p>
+<p> This is some instruction to the candidate who attend the test.</p>
+
+<div class="checkbox">
+    <label>
+        <input type="checkbox" [(ngModel)]="isAccept" value="isAccept">I Accept
+    </label>
+</div>
+
+<Button type="reset" class="btn btn-danger">Cancel</Button>
+<Button type="submit" class="btn btn-success" (click)="onContinue()">Continue</Button>
+

@@ -1,0 +1,33 @@
+<div class="content" role="main">
+
+    <div class="col-md-6">
+  
+      <h2 class="text-center">Enter your details</h2>
+  
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" formControlName="name" name="name" class="form-control" id="name">
+          <div class="error" *ngIf="submitted && f.name.errors && f.name.errors.required">Name is required</div>
+        </div>
+  
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" formControlName="email" name="email" class="form-control" id="email">
+          <div class="error" *ngIf="submitted && f.email.errors && f.email.errors.required">Email is required</div>
+  
+        </div>
+  
+        <div class="form-group">
+          <label for="phone">Phone:</label>
+          <input type="number" formControlName="phone" name="phone" class="form-control" id="phone" >
+          <div class="error" *ngIf="submitted && f.phone.errors">Invalid phone number</div>
+  
+        </div>
+  
+        <Button type="reset" class="btn btn-danger">Cancel</Button>
+        <Button type="submit" class="btn btn-success">Enter</Button>
+      </form>
+    </div>
+  </div>

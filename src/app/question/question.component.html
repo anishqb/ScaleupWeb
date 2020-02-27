@@ -1,0 +1,21 @@
+<p>Answer the question</p>
+
+<p class="question">{{qstn}}</p>
+
+<label id="example-radio-group-label">Select you answer</label>
+
+<form>
+    <div *ngFor="let option of options">
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="option" name="option" [(ngModel)]="answer"
+                [value]="option">
+            <label class="form-check-label" for="option">{{option}}</label>
+        </div>
+    </div>
+
+</form>
+
+<div>Your selected option is: {{answer}}</div>
+
+<Button type="reset" class="btn btn-danger">Previous</Button>
+<Button type="submit" class="btn btn-success">Next</Button>
