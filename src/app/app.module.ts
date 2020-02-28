@@ -9,6 +9,9 @@ import { LoginComponent } from './login/login.component';
 import { Routes, RouterModule } from '@angular/router';
 import { QuestionComponent } from './question/question.component';
 import { InstructionComponent } from './instruction/instruction.component';
+import { ExamComponent } from './exam/exam.component';
+import { ApiService } from './service/api.service';
+import {   HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,16 +19,18 @@ import { InstructionComponent } from './instruction/instruction.component';
     HomeComponent,
     LoginComponent,
     QuestionComponent,
-    InstructionComponent
+    InstructionComponent,
+    ExamComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule ,
     FormsModule,
     ReactiveFormsModule,
     routing,
     RouterModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

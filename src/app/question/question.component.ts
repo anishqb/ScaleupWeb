@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Question } from '../Model/question.model';
+import { ApiService } from '../service/api.service';
 
 @Component({
   selector: 'app-question',
@@ -7,25 +9,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionComponent implements OnInit {
 
-  qstn:string;
-  opt1:string;
-  opt2:string;
-  opt3:string;
-  opt4:string;
-  answer:string;
-
+  answer: string;
   options: string[];
-  constructor() { }
+  qstns: any[] = [];
+  i: number = 0;
+  isEnd: boolean = false;
+  isStart: boolean = true;
+
+  constructor(private apiService:ApiService) { }
 
   ngOnInit(): void {
 
-  this.qstn='You purchased two pieces of cloth measuring 1.2 m and 1.3 m each at Rs. 330 and Rs. 270 per meter respectively and gave Rs. 1000 at the payment counter. How much cash will you get back?';
+    this.isStart = true;
 
-  this.options=  ['Winter', 'Spring', 'Summer', 'Autumn'];
-this.opt1='5';
-this.opt2='3';
-this.opt3='2';
-this.opt4='1';
+    var response=this.apiService.readQuestions();
+
+    if(response.status==200){
+      response.result.forEach(element => {
+        this.qstns.push(element);
+      });
+    }
+
+    if (this.i == this.qstns.length - 1) {
+      this.isEnd = true;
+    }
   }
 
+  onNext() {
+    this.i++;
+    if (this.i == this.qstns.length - 1) {
+      this.isEnd = true;
+    }
+    this.isStart = false;
+  }
+
+  onPrevious() {
+    this.i--;
+    if (this.i == 0) {
+      this.isStart = true;
+    }
+    this.isEnd = false;
+  }
 }
