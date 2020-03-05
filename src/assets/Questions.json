@@ -1,29 +1,35 @@
 [
     {
         "questionId": 1,
-        "question": "abcd abcd",
+        "question": "A father said to his son, I was as old as you are at the present at the time of your birth. If the father's age is 38 years now, the son's age five years back was:",
         "options": [
-            "ab",
-            "ac",
-            "ad"
-        ]
+            "14 years",
+            "19 years",
+            "33 years",
+            "38 years"
+        ],
+        "c_answer":"14 years"
     },
     {
         "questionId": 2,
-        "question": "xyz xyz",
+        "question": "Three times the first of three consecutive odd integers is 3 more than twice the third. The third integer is:",
         "options": [
-            "xx",
-            "yy",
-            "zz"
-        ]
+            "9",
+            "11",
+            "13",
+            "15"
+        ],
+        "c_answer":"15"
     },
     {
         "questionId": 3,
-        "question": "ddd ddd",
+        "question": "Running at the same constant rate, 6 identical machines can produce a total of 270 bottles per minute. At this rate, how many bottles could 10 such machines produce in 4 minutes?",
         "options": [
-            "dd",
-            "ee",
-            "ww"
-        ]
+            "648",
+            "1800",
+            "2700",
+            "10800"
+        ],
+        "c_answer":"1800"
     }
 ]

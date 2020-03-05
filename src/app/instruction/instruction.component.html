@@ -1,12 +1,24 @@
 <p>instruction works!</p>
 <p> This is some instruction to the candidate who attend the test.</p>
 
-<div class="checkbox">
-    <label>
-        <input type="checkbox" [(ngModel)]="isAccept" value="isAccept">I Accept
-    </label>
+<h3>Choose your exam type</h3>
+
+<div class="col-md-6">
+    <form [formGroup]="qTypeForm">
+        <div>
+            <select class="custom-select" (change)="changeType($event)" formControlName="questionType">
+                <option value="">Choose your question type</option>
+                <option *ngFor="let qtype of Types" [ngValue]="qtype">{{qtype}}</option>
+            </select>
+        </div>
+
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" [(ngModel)]="isAccept" value="isAccept">I Accept
+            </label>
+        </div>
+
+        <Button type="reset" class="btn btn-danger">Cancel</Button>
+        <Button type="submit" class="btn btn-success" (click)="onContinue()">Continue</Button>
+    </form>
 </div>
-
-<Button type="reset" class="btn btn-danger">Cancel</Button>
-<Button type="submit" class="btn btn-success" (click)="onContinue()">Continue</Button>
-
